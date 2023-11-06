@@ -1,0 +1,53 @@
+.mini-card {
+    display: grid;
+    row-gap: 9px;
+    width: 255px;
+
+    @include mediaTablet {
+        width: auto;
+        max-width: 335px;
+        min-width: 280px;
+    }
+
+    &--mobile {
+        display: none;
+
+        @include mediaTablet {
+            display: grid;
+            margin-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 28px;
+        }
+    }
+}
+
+.mini-card__heading {
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.mini-card__wrapper {
+
+}
+
+.mini-card__img {
+    @include mediaTablet {
+        width: 100%;
+    }
+}
+
+.mini-card__container {
+    background: #fff;
+    padding: 24px 11px 40px 29px;
+}
+
+.mini-card__title {
+    font-family: IBM Plex Serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 27px; /* 150% */
+}

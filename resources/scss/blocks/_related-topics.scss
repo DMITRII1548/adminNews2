@@ -1,0 +1,45 @@
+.related-topics {
+    display: grid;
+    padding-top: 30px;
+    padding-bottom: 50px;
+
+    padding-left: 277px;
+    padding-right: 277px;
+
+    @include mediaLaptop {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    @include mediaTablet {
+        padding-top: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.related-topics__title {
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 146.631%; /* 29.326px */
+
+    @include mediaTablet {
+        font-size: 18px;
+    }
+}
+
+.related-topics__items {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 22px;
+
+    margin-top: 15px;
+
+    overflow-x: auto;
+
+    @include mediaTablet {
+        column-gap: 8px;
+    }
+}

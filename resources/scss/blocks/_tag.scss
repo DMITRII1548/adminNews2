@@ -1,0 +1,22 @@
+.tag {
+    border-radius: 15px;
+    background: rgba(11, 0, 142, 0.10);
+
+    min-width: 100px;
+    text-align: center;
+
+    padding: 8px 0;
+}
+
+.tag__title {
+    color: #0B008E;
+
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px; /* 127.273% */
+    letter-spacing: 1.62px;
+    text-transform: uppercase;
+}

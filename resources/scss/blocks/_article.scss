@@ -1,0 +1,134 @@
+.article {
+    width: 705px;
+
+    @include mediaLaptop {
+        width: 500px;
+    }
+
+    @include mediaTablet {
+        width: 100%;
+    }
+}
+
+.article__info {
+    display: flex;
+    column-gap: 9px;
+    
+    &>span:first-child {
+        font-family: Poppins;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 165%; /* 21.45px */
+
+        @include mediaTablet {
+            font-size: 12px;
+        }
+    }
+
+    &>span:last-child {
+        font-family: Poppins;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 165%; /* 21.45px */
+
+        opacity: 0.7;
+        
+        @include mediaTablet {
+            font-size: 12px;
+        }
+    }
+}
+
+.article__content {
+    display: grid;
+    justify-items: center;
+    row-gap: 40px;
+    margin-top: 13px;
+
+    @include mediaTablet {
+        row-gap: 30px;
+    }
+}
+
+.article__p {
+    font-family: Nunito Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px; /* 150% */
+
+    @include mediaTablet {
+        font-size: 14px;
+    }
+}
+
+.article__title {
+    font-family: IBM Plex Serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 42px; /* 150% */
+
+    padding-top: 25px;
+    padding-bottom: 30px;
+
+    border-top: 1px solid #EE6400;
+    border-bottom: 1px solid #EE6400;
+
+    @include mediaTablet {
+        padding-bottom: 25px;
+    }
+}
+
+.article__block {
+    display: grid;
+    justify-items: end;
+    width: 560px;
+    row-gap: 10px;
+
+    @include mediaLaptop {
+        width: 100%;
+    }
+}
+
+.article__img {
+    width: 560px;
+
+    @include mediaLaptop {
+        width: 100%;
+    }
+}
+
+.article__span {
+    font-family: Nunito Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px; /* 150% */
+    width: 560px;
+    padding-left: 20px;
+
+    position: relative;
+
+    @include mediaLaptop {
+        width: 100%;
+    }
+
+
+    &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 33px;
+
+        background: #EE6400;
+    }
+}
+
+.article__author {
+    color: #EE6400;
+}

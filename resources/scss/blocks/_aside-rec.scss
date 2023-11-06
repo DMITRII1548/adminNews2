@@ -1,0 +1,24 @@
+.aside-rec {
+    display: none;
+
+    @include mediaTablet {
+        display: grid;
+        row-gap: 9px;
+
+        padding-top: 30px;
+    }
+}
+
+.aside-rec__title {
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.aside-rec__items {
+    display: flex;
+    overflow-x: auto;
+    column-gap: 6px;
+}

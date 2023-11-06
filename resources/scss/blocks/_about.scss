@@ -1,0 +1,163 @@
+.about {
+    display: grid;
+
+    @include mediaLaptop {
+        width: 100%;
+    }
+}
+
+.about__tags {
+    display: flex;
+    gap: 20px;
+
+    overflow-x: auto;
+}
+
+.about__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 41px;
+
+    padding-bottom: 32px;
+
+    border-bottom: 1px solid rgba(#2a2a2a, 0.1);
+
+    @include mediaTablet {
+        display: none;
+    }
+}
+
+.about__left {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.about__action {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+
+    &>span {
+        font-family: Poppins;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 165%; /* 16.5px */
+    }
+}
+
+.about__right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.about__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 33px;
+
+    position: relative;
+
+    @include mediaTablet {
+        display: grid;
+
+        padding: 30px 0;
+        border-top: 1px solid rgba(#2a2a2a, 0.1);
+        border-bottom: 1px solid rgba(#2a2a2a, 0.1);
+    }
+}
+
+.about__card {
+    display: flex;
+    column-gap: 20px;
+
+    @include mediaTablet {
+        display: flex;
+        column-gap: 10px;
+    }
+}
+
+.about__author-img {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    @include mediaLaptop {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.about__container {
+    display: grid;
+    width: 356px;
+
+    @include mediaTablet {
+        align-content: end;
+        // gap: 8px;
+        width: auto;
+    }
+}
+
+.about__author {
+    font-family: Nunito Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px; /* 146.667% */
+    opacity: 0.7;
+
+    @include mediaTablet {
+        font-size: 14px;
+        line-height: 14px;
+    }
+}
+
+.about__name {
+    font-family: Nunito Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px; /* 110% */
+
+    margin-top: 4px;
+
+    @include mediaTablet {
+        font-size: 18px;
+        line-height: 18px;
+    }
+}
+
+.about__text {
+    margin-top: 12px;
+
+    font-family: Nunito Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 146.667% */
+
+    &--red {
+        color: #EE6400;
+    }
+
+    &--mobile {
+        display: none;
+
+        @include mediaTablet {
+            display: block !important;
+        }
+    }
+
+    @include mediaTablet {
+        display: none;
+        margin-top: 14px;
+        font-size: 14px;
+    }
+}
+

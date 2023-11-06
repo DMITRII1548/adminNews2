@@ -1,0 +1,48 @@
+.rec-card {
+    display: grid;
+    min-width: 266px;
+    height: 234px;
+
+    position: relative;
+
+    filter: drop-shadow(0px 2px 14px rgba(42, 42, 42, 0.24));
+}
+
+.rec-card__img {
+    width: 266px;
+    height: 128px;
+}
+
+.rec-card__actions {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+
+    position: absolute;
+
+    right: 0;
+    top: 100px;
+
+    padding: 10px;
+
+    background: #fff;
+}
+
+.rec-card__wrapper {
+    background: #fff;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 16px;
+    padding-bottom: 27px;
+}
+
+.rec-card__title {
+    height: 63px;
+    overflow: hidden;
+
+    font-family: IBM Plex Serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px; /* 157.143% */
+}

@@ -1,0 +1,24 @@
+.wrapper-show {
+    display: flex;
+    justify-content: space-between;
+    gap: 92px;
+    padding-left: 277px;
+    padding-right: 435px;
+    padding-top: 41px;
+    padding-bottom: 50px;
+
+    @include mediaLaptop {
+        padding-left: 50px;
+        padding-right: 50px;
+        gap: 45px;
+    }
+
+    @include mediaTablet {
+        display: grid;
+        row-gap: 30px;
+        padding-top: 15px;
+        padding-left: 20px;
+        padding-right: 20px;   
+        gap: 0;     
+    }
+}

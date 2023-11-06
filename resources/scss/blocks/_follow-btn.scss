@@ -1,0 +1,66 @@
+.follow-btn {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+    padding: 12px 22px;
+
+    border-radius: 2px;
+    border: 1px solid #EFBFBE;
+
+    width: 145px;
+
+    &>div {
+        position: relative;
+        width: 19px;
+        height: 16px;
+    }
+
+    &>div::before {
+        content: "";
+        position: absolute;
+
+        background: url('./../imgs/btn/twitter.svg');
+
+        width: 19px;
+        height: 16px;
+
+        top: 0;
+        left: 0;
+        z-index: 999;
+    }
+
+    @include mediaTablet {
+        position: absolute;
+        top: 30px;
+        right: 0;
+
+        width: 124px;
+
+        column-gap: 10px;
+
+        padding: 12px 14px;
+
+        border: 1px solid #0B008E;
+        color: #0B008E;
+
+        text-transform: uppercase;
+
+        &>div::before {
+            content: "";
+            position: absolute;
+
+            background: url('./../imgs/btn/twitter-blue.svg');
+
+            width: 19px;
+            height: 16px;
+
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+    }
+
+    @media screen and (max-width: 359px) {
+        display: none;
+    }
+}

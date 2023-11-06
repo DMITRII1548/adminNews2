@@ -1,0 +1,12 @@
+.aside-cards__items {
+    display: grid;
+    row-gap: 40px;
+
+    @include mediaTablet {
+        display: none;
+        &>div:first-child {
+            width: 100%;
+            display: none;
+        }
+    }
+}

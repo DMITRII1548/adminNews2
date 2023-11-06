@@ -1,0 +1,115 @@
+.card {
+    display: grid;
+    background-color: #fff;
+    width: 438px;
+    height: 540px;
+
+    @include mediaTablet {
+        width: auto;
+        max-width: 438px;
+        min-width: 300px;
+    }
+}
+
+.card__wrapper {
+    display: grid;
+
+    padding-top: 15px;
+    padding-bottom: 20px;
+
+    @include mediaTablet {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+.card__img {
+    width: 438px;
+}
+
+.card__title, .card__title>a {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 27px; /* 150% */
+    padding-left: 25px;
+    padding-right: 25px;
+
+    @include mediaTablet {
+        font-size: 14px;
+    }
+}
+
+.card__text {
+    font-family: Nunito Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 146.667% */
+    margin-top: 17px;
+    height: 124px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    @include mediaTablet {
+        font-style: 13px;
+        margin-top: 8px;
+    }
+}
+
+.card__info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 9px;
+    align-self: end;
+
+    margin-top: 12px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    @include mediaTablet {
+        column-gap: 20px;
+    }
+
+    &>span:first-child {
+        font-family: Poppins;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 165%; /* 21.45px */
+
+        @include mediaTablet {
+            font-size: 12px;
+        }
+    }
+
+    &>span:last-child {
+        font-family: Poppins;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 165%; /* 21.45px */
+        opacity: 0.7;
+
+        @include mediaTablet {
+            font-size: 12px;
+        }
+    }
+}
+
+.card__actions {
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+
+    border-top: 1px solid rgba(#2a2a2a, 0.1);
+    padding-top: 20px;
+    margin-top: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.card__action {
+    cursor: pointer;
+}
