@@ -26,6 +26,7 @@ class StoreRequest extends FormRequest
             'description' => 'required|string',
             'preview_image' => 'required|image',
             'content' => 'required|string',
+            'created_at' => 'required|date',
             'publish_date' => 'required|date',
             'author_name' => 'required|string'
         ];

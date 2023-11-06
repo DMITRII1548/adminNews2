@@ -17,8 +17,8 @@
             </div>
 
             <ul class="aside-actions__list">
-                <li class="aside-actions__item"><img onclick="addLike({{ $news->id }})" src="{{ asset('imgs/card/like-active.svg') }}" alt="Like" id="like-img-{{ $news->id }}"> <span>{{ $news->likes }}</span></li>
-                <li class="aside-actions__item"><img src="{{ asset('imgs/article/comments.svg') }}" alt="Comments"> <span>21</span></li>
+                <li class="aside-actions__item"><img onclick="addLike({{ $news->id }})" src="{{ asset('imgs/card/like.svg') }}" alt="Like" id="like-img-{{ $news->id }}"> <span id="news-like-{{ $news->id }}">{{ $news->likes }}</span></li>
+                <li class="aside-actions__item"><img src="{{ asset('imgs/article/comments.svg') }}" alt="Comments"> <span id="news-content-{{ $news->id }}">21</span></li>
                 <li class="aside-actions__item"><img src="{{ asset('imgs/card/repost.svg') }}" alt="Repost"></li>
                 <li class="aside-actions__item"><img src="{{ asset('imgs/card/save.svg') }}" alt="Save"></li>
             </ul>
@@ -69,7 +69,7 @@
                     <div class="about__left">
                         <button class="about__action">
                             <img onclick="addLike({{ $news->id }})" src="{{ asset('imgs/article/like.svg') }}" id="like-img-{{ $news->id }}" alt="Like">
-                            <span>{{ $news->likes }}</span>
+                            <span id="news-content-{{ $news->id }}">{{ $news->likes }}</span>
                         </button>
 
                         <button class="about__action">
@@ -92,7 +92,7 @@
                 </div>
                 <div class="about__info">
                     <div class="about__card">
-                        <div class="about__author-img" style="background: url(imgs/article/author.jpg);"></div>
+                        <div class="about__author-img" style="background: url({{ asset('imgs/article/author.jpg') }});"></div>
                         <div class="about__container">
                             <h5 class="about__author">Author</h5>
                             <h4 class="about__name">{{ $news->author_name }}</h4>
@@ -178,7 +178,7 @@
                     <div class="topic__actions">
                         <button class="topic__action">
                             <img onclick="addLike($news->id)" src="{{ asset('imgs/card/like.svg') }}" id="like-img-{{ $news->id }}" alt="Like">
-                            <span>{{ $topic->likes }}</span>
+                            <span id="news-content-{{ $news->id }}">{{ $topic->likes }}</span>
                         </button>
                         <button class="topic__action" id="share">
                             <img src="{{ asset('imgs/card/repost.svg') }}" alt="Repost">

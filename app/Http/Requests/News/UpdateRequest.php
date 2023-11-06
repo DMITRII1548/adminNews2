@@ -26,6 +26,7 @@ class UpdateRequest extends FormRequest
             'description' => 'required|string',
             'preview_image' => 'nullable|image',
             'content' => 'required|string',
+            'created_at' => 'required|date',
             'publish_date' => 'required|date',
             'author_name' => 'required|string'
         ];

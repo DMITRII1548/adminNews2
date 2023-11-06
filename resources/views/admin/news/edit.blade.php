@@ -51,6 +51,17 @@
                 </div>
 
                 <div class="form-group">
+                    <label>Дата создания:</label>
+                      <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="datetime-local" name="created_at" class="form-control" value="{{ old('created_at') ?? $news->created_at }}">
+                          {{-- <input type="text" name="publish_date" type="date" placeholder="dd/mm/yyyy" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                          <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                          </div> --}}
+                      </div>
+                </div>
+
+                <div class="form-group">
                     <label>Дата публикации:</label>
                       <div class="input-group date" id="reservationdate" data-target-input="nearest">
                         <input type="date" name="publish_date" class="form-control" value="{{ old('publish_date') ?? $news->publish_date }}">
@@ -62,7 +73,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="text" name="author_name" placeholder="Имя автора" class="form-control" value="{{ old('publish_date') ?? $news->publish_date }}" required>
+                    <input type="text" name="author_name" placeholder="Имя автора" class="form-control" value="{{ old('publish_date') ?? $news->author_name }}" required>
                 </div>
 
                 <div class="form-group">

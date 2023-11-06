@@ -18,4 +18,14 @@ class NewsController extends Controller
             'likes' => $news->likes
         ]);
     }
+
+    public function removeLike(News $news): Response
+    {
+        $news->likes = $news->likes - 2;
+        $news->save();
+
+        return response([
+            'likes' => $news->likes
+        ]);
+    }
 }

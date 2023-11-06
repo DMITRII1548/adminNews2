@@ -22,6 +22,9 @@ class NewsController extends Controller
 
     public function show(News $news)
     {
+        $news->views = $news->views + 1;
+        $news->save();
+
         $recomendations = News::orderBy('likes', 'desc')->limit(2)->get();
         $topics = News::orderBy('likes', 'desc')->limit(6)->get();
 

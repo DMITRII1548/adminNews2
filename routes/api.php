@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/likes/{news}', [NewsController::class, 'addLike']);
+Route::get('/likes/{news}/remove', [NewsController::class, 'removeLike']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

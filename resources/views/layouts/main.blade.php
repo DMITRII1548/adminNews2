@@ -12,7 +12,7 @@
 </head>
 <body>
     <header class="header" style="background: {{ \App\Models\PageColor::first()->header }};">
-        <a href="#" class="header__logo">
+        <a href="{{ route('news.index') }}" class="header__logo">
             <img src="{{ asset('imgs/header/logo.svg') }}" alt="Логотип">
         </a>
         <img src="{{ asset('imgs/header/search.svg') }}" alt="Поиск" id="search-btn" class="header__search">
@@ -25,7 +25,9 @@
     @yield('content')
     <footer class="footer" style="background: {{ \App\Models\PageColor::first()->footer }}">
         <div class="footer__logo">
-            <img src="./../imgs/footer/logo.svg" alt="Logo">
+            <a href="{{ route('news.index') }}">
+                <img src="./../imgs/footer/logo.svg" alt="Logo">
+            </a>
             <span>copyright <img src="./../imgs/footer/icon.svg" alt=""> 2020 | NBC NEWS</span>
         </div>
         <ul class="footer__list">
@@ -64,10 +66,34 @@
         function addLike(id) {
             axios.get(`/api/likes/${id}`)
                 .then(res => {
-                    console.log(res)
-                    console.log(document.getElementById('like-img-' + id).src)
-                    document.getElementById('like-img-' + id).src = '/imgs/card/like-active.svg'
-                    // document.getElementById(`likes-${id}`).innerHTML = res.data.likes
+                    let likes = String(res.data.likes);
+                    let likeImages = Array.from(document.querySelectorAll('#like-img-' + id))
+                    let likeContent = Array.from(document.querySelectorAll('#news-content-' + id))
+
+                    if (!likeImages[0].classList.toggle('liked')) {
+                        removeLike(id)
+                    } else {
+                        for (let i = 0; i < likeImages.length; i++) {
+                            likeImages[i].src = '/imgs/card/like-active.svg';
+                            likeContent[i].textContent = String(likes)
+                        }                        
+                    }
+
+
+                })
+        }
+
+        function removeLike(id) {
+            axios.get(`/api/likes/${id}/remove`)
+                .then(res => {
+                    let likes = res.data.likes;
+                    let likeImages = Array.from(document.querySelectorAll('#like-img-' + id))
+                    let likeContent = Array.from(document.querySelectorAll('#news-content-' + id))
+
+                    for (let i = 0; i < likeImages.length; i++) {
+                        likeImages[i].src = '/imgs/card/like.svg'
+                        likeContent[i].textContent = String(likes)
+                    }
                 })
         }
     </script>

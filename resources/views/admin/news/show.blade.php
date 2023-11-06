@@ -61,6 +61,10 @@
                             <td>{!! $news->content !!}</td>
                         </tr>
                         <tr>
+                            <td>Дата создания</td>
+                            <td>{{ $news->date }}</td>
+                        </tr>
+                        <tr>
                             <td>До публикации</td>
                             <td>{{ $news->publishBefore > 0 ? $news->publishBefore . ' часов': 'Опубликовано' }}</td>
                         </tr>

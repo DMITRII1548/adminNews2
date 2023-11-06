@@ -33,7 +33,7 @@ class News extends Model
 
     public function getDateAttribute()
     {
-        $date = Carbon::parse($this->publish_date);
+        $date = Carbon::parse($this->created_at);
 
         $formattedDate = $date->format('j M Y');
 

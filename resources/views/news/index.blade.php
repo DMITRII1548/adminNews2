@@ -40,7 +40,7 @@
             <h3 class="cards__title">News</h3>
             <img src="{{ asset('/imgs/card/nav.svg') }}" alt="Навигация" class="cards__nav-img">
         </div>
-        <div class="cards__wrapper">
+        <div class="cards__wrapper" style="gap: 10px">
             @foreach ($news as $n)
                 <div class="card">
                     <a href="{{ route('news.show', $n->id) }}"><img src="{{ $n->imageUrl }}" alt="Card" class="card__img"></a>
@@ -54,7 +54,7 @@
                         <ul class="card__actions">
                             <li class="card__action">
                                 <img onclick="addLike({{ $n->id }})" src="{{ asset('/imgs/card/like.svg') }}" alt="Like" id="like-img-{{ $n->id }}">
-                                <span class="card__count" id="news-{{ $n->id }}" id="like-{{ $n->id }}">{{ $n->likes }}</span>
+                                <span class="card__count" id="news-content-{{ $n->id }}" id="like-{{ $n->id }}">{{ $n->likes }}</span>
                             </li>
                             <li class="card__action" id="share">
                                 <img src="{{ asset('/imgs/card/repost.svg') }}" alt="Поделиться">
