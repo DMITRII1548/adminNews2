@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\WEB\Admin\NewsController;
 use App\Http\Controllers\WEB\Admin\SectionController;
+use App\Http\Controllers\WEB\Admin\TagController;
 use App\Http\Controllers\WEB\NewsController as WEBNewsController;
 use App\Http\Controllers\WEB\UserController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,19 @@ Route::get('/users/edit', [UserController::class, 'edit'])->name('user.edit')->m
 Route::patch('/users', [UserController::class, 'update'])->name('user.update')->middleware('auth');
 
 Route::prefix('/admin')->middleware('auth')->group(function () {
+    Route::prefix('/tags')->group(function () {
+        Route::get('/create', [TagController::class, 'create'])->name('admin.tag.create');
+        Route::post('/', [TagController::class, 'store'])->name('admin.tag.store');
+
+        Route::get('/', [TagController::class, 'index'])->name('admin.tag.index');
+        Route::get('/{tag}', [TagController::class, 'show'])->name('admin.tag.show');
+
+        Route::get('/{tag}/edit', [TagController::class, 'edit'])->name('admin.tag.edit');
+        Route::patch('/{tag}', [TagController::class, 'update'])->name('admin.tag.update');
+
+        Route::delete('/{tag}', [TagController::class, 'destroy'])->name('admin.tag.delete');
+    });
+
     Route::prefix('/news')->group(function () {
         Route::get('/create', [\App\Http\Controllers\WEB\Admin\NewsController::class, 'create'])->name('admin.news.create');
         Route::post('/', [\App\Http\Controllers\WEB\Admin\NewsController::class, 'store'])->name('admin.news.store');

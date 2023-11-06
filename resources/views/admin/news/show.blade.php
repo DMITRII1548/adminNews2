@@ -75,6 +75,14 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>Теги:</td>
+                            <td>
+                                @foreach ($tags as $tag)
+                                    {{ $tag->title }} <br>
+                                @endforeach
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Просмотры:</td>
                             <td>
                                 {{ $news->views }}

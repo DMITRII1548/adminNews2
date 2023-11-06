@@ -43,28 +43,18 @@
                 </a>
             </div>
             <div class="about">
-                {{-- <div class="about__tags">
-                    <div class="tag">
-                        <h5 class="tag__title">
-                            Freebie
-                        </h5>
+                @if ($news->tags)
+                    <div class="about__tags">
+                        @foreach ($news->tags as $tag)
+                            <div class="tag">
+                                <h5 class="tag__title">
+                                    {{ $tag->title }}
+                                </h5>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="tag">
-                        <h5 class="tag__title">
-                            Trending
-                        </h5>
-                    </div>
-                    <div class="tag">
-                        <h5 class="tag__title">
-                            Lews
-                        </h5>
-                    </div>
-                    <div class="tag">
-                        <h5 class="tag__title">
-                            Freebie
-                        </h5>
-                    </div>
-                </div> --}}
+                @endif
+
                 <div class="about__actions">
                     <div class="about__left">
                         <button class="about__action">

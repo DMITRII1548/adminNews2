@@ -77,6 +77,14 @@
                 </div>
 
                 <div class="form-group">
+                    <select class="tags" name="tags[]" multiple="multiple" data-placeholder="Выберети теги" style="width: 100%;">
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->id }}"{{ in_array($tag->id, $selectedTagsIds) ? ' selected' : '' }}>{{ $tag->title }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <button class="btn btn-primary" type="submit">Изменить</button>
                  </div>
             </form>

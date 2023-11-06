@@ -122,6 +122,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route("admin.tag.index") }}" class="nav-link">
+                <i class="fas fa-tags"></i>
+              <p>
+                Теги
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route("admin.section.show") }}" class="nav-link">
               <i class="fas fa-palette"></i>
               <p>

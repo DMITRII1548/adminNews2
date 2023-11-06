@@ -42,7 +42,6 @@ class NewsController extends Controller
             ->limit(90)
             ->get();
 
-
         $trend = News::orderBy('likes', 'desc')->first();
 
         $lastUpdated = News::orderBy('updated_at', 'desc')->limit(4)->get();

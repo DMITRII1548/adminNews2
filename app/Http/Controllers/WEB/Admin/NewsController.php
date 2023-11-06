@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\News\StoreRequest;
 use App\Http\Requests\News\UpdateRequest;
 use App\Models\News;
+use App\Models\Tag;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -22,7 +23,9 @@ class NewsController extends Controller
 
     public function create(): View
     {
-        return view('admin.news.create');
+        $tags = Tag::get();
+
+        return view('admin.news.create', compact('tags'));
     }
 
     public function store(StoreRequest $request): RedirectResponse
@@ -31,19 +34,39 @@ class NewsController extends Controller
 
         $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
 
+        $tags = [];
+
+        if (isset($data['tags'])) {
+            $tags = $data['tags'];
+            unset($data['tags']);
+        }
+
         $news = News::create($data);
+        $news->tags()->attach($tags);
 
         return redirect()->route('admin.news.show', $news->id);
     }
 
     public function show(News $news): View
     {
-        return view('admin.news.show', compact('news'));
+        $tags = $news->tags;
+
+        return view('admin.news.show', compact('news', 'tags'));
     }
 
     public function edit(News $news): View
     {
-        return view('admin.news.edit', compact( 'news'));
+        $tags = Tag::get();
+
+        $selectedTags = $news->tags;
+
+        $selectedTagsIds = [];
+
+        foreach ($selectedTags as $tag) {
+            array_push($selectedTagsIds, $tag->id);
+        }
+
+        return view('admin.news.edit', compact( 'tags', 'news', 'selectedTagsIds'));
     }
 
     public function update(UpdateRequest $request, News $news): RedirectResponse
@@ -55,6 +78,12 @@ class NewsController extends Controller
             $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
         }
 
+        if (isset($data['tags'])) {
+            $news->tags()->sync($data['tags']);
+
+            unset($data['tags']);
+        }
+
         $news->update($data);
 
         return redirect()->route('admin.news.show', $news->id);
@@ -62,6 +91,8 @@ class NewsController extends Controller
 
     public function destroy(News $news): RedirectResponse
     {
+        $news->tags()->detach();
+        
         Storage::disk('public')->delete($news->preview_image);
 
         $news->delete();

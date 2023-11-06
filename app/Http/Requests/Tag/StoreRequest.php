@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\News;
+namespace App\Http\Requests\Tag;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,14 +22,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string',
-            'description' => 'required|string',
-            'preview_image' => 'nullable|image',
-            'content' => 'required|string',
-            'created_at' => 'required|date',
-            'publish_date' => 'required|date',
-            'author_name' => 'required|string',
-            'tags' => 'nullable|array',
+            'title' => "required|string"
         ];
     }
 }

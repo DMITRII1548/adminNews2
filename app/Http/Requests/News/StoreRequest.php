@@ -28,7 +28,8 @@ class StoreRequest extends FormRequest
             'content' => 'required|string',
             'created_at' => 'required|date',
             'publish_date' => 'required|date',
-            'author_name' => 'required|string'
+            'author_name' => 'required|string',
+            'tags' => 'nullable|array',
         ];
     }
 }
