@@ -37,7 +37,10 @@ class NewsController extends Controller
             'title' => 'required|string'
         ]);
 
-        $news = News::where('title', 'like', '%' . $data['title'] . '%')->where('publish_date', '<=', Carbon::now())->get();
+        $news = News::where('title', 'like', '%' . $data['title'] . '%')
+            ->where('publish_date', '<=', Carbon::now())
+            ->limit(90)
+            ->get();
 
 
         $trend = News::orderBy('likes', 'desc')->first();

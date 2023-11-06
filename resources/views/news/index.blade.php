@@ -41,8 +41,8 @@
             <img src="{{ asset('/imgs/card/nav.svg') }}" alt="Навигация" class="cards__nav-img">
         </div>
         <div class="cards__wrapper" style="gap: 10px">
-            @foreach ($news as $n)
-                <div class="card">
+            @foreach ($news as $index => $n)
+                <div class="card {{ $index < 2 ? '' : 'none' }}">
                     <a href="{{ route('news.show', $n->id) }}"><img src="{{ $n->imageUrl }}" alt="Card" class="card__img"></a>
                     <div class="card__wrapper">
                         <h4 class="card__title">{{ $n->title }}</h4>
@@ -68,9 +68,9 @@
                 </div>
             @endforeach
         </div>
-        {{-- <button class="cards__btn">
+        <button class="cards__btn" id="more-btn-news">
             View More
-        </button> --}}
+        </button>
     </section>
     <section class="slider">
         <div class="slider__title">
@@ -108,4 +108,20 @@
         </div>
     </section>
 </main>
+<script>
+    const newsMore = document.getElementById('more-btn-news');
+
+    newsMore.addEventListener('click', function() {
+        showAllItems('card');
+    });
+
+    function showAllItems(type) {
+        const items = document.querySelectorAll(`.${type}`);
+        items.forEach(item => {
+            item.classList.remove('none');
+        });
+
+        newsMore.classList.toggle('none')
+    }
+</script>
 @endsection
